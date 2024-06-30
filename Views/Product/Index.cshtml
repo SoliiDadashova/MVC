@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Product> 
+<div class="container p-3">
+   <div class="row pt-4">
+       <div class="col-6">    
+           <h2 style="font-family:'Times New Roman'"> 
+               Product List
+           </h2>
+       </div>
+       <div class="col-6 text-right"> 
+          <form method="post" asp-controller="Product" asp-action="Create">
+          <button type="submit" class="btn btn-primary">Create Product</button> 
+        </form>
+       </div>
+   </div>
+</div>
+<br>
+<table class="table table-striped" style="background-color:white" width="100px">
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+       <th scope="col">Price</th>
+       <th scope="col">Category ID</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (Product e in Model)
+  {
+      if (!string.IsNullOrEmpty(e.Name))
+      {
+      <tr>
+           <td>@e.Name</td>
+           <td>@e.Price</td>
+           <td>@e.CategoryId</td>
+      </tr>
+      }          
+   }
+  </tbody>
+</table>

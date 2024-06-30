@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Category> 
+<div class="container p-3">
+   <div class="row pt-4">
+       <div class="col-6">    
+           <h2 style="font-family:'Times New Roman'"> 
+               Categories List
+           </h2>
+       </div>
+          <div class="col-6 text-right"> 
+          <form method="post" asp-controller="Category" asp-action="Create">
+          <button type="submit" class="btn btn-primary">Create Category</button> 
+        </form>
+        </div>
+   </div>
+</div>
+<br>
+<table class="table table-striped" style="background-color:white" width="100px">
+  <thead>
+    <tr>
+      <th scope="col">Category Name</th>
+    </tr>
+  </thead>
+  <tbody>
+ @foreach (Category e in Model)
+{
+    if (!string.IsNullOrEmpty(e.CategoryName))
+    {
+        <tr>
+            <td>@e.CategoryName</td>
+        </tr>
+    }
+}
+  </tbody>
+</table>
+

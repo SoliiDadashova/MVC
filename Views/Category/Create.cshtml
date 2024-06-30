@@ -1,0 +1,13 @@
+﻿@model WebAppMVC.Models.CategoryDTO
+<form method="post" asp-controller="Category" asp-action="Create">
+  <div class="form-group" style="width:250px" >
+    <label asp-for="CategoryName">Category Name</label>
+    <input asp-for="CategoryName" class="form-control" />
+  </div>
+  <div class="form-group">
+   <input type="submit" class="btn btn-info" value="Create"/>
+   <input formmethod="get" type="submit" class="btn btn-danger" width="100px" value="Back" asp-action="Index"/>
+  
+  </div>
+</form> 
+
